@@ -249,7 +249,7 @@ def _html_page_context(app, pagename, templatename, context, doctree):
     utc_date = datetime.fromtimestamp(int(timestamp), timezone.utc)
     date = utc_date.astimezone(app.config.git_last_updated_timezone)
     context['last_updated'] = format_date(
-        lufmt or _('%b %d, %Y'),
+        lufmt or str(_('%b %d, %Y')),
         date=date,
         language=app.config.language)
 
