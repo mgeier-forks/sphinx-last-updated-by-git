@@ -199,3 +199,14 @@ def test_exclude_commits_without_warning():
         **expected_results,
         'I 🖤 Unicode': ['None', 'undefined'],
     }
+
+
+def test_first_parent():
+    data = run_sphinx(
+        'repo_full',
+        git_first_parent=1,
+    )
+    assert data == {
+        **expected_results,
+        'I 🖤 Unicode': [time6, 'defined'],
+    }
